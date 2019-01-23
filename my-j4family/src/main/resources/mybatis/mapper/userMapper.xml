@@ -9,7 +9,7 @@
     		   , USER_NAME name
     		   , USER_PASSWORD password
     		   , DATE_FORMAT(REG_DT,'%Y-%m-%d') regDt
-    	FROM TBL_USER_INFO
+    	FROM 	TBL_USER_INFO
     </select>
     
     <insert id="userInsert" parameterType="com.j4family.vo.UserVO" >
@@ -18,7 +18,7 @@
     							  , USER_PASSWORD
     							  , REG_DT
     							 )
-    							 VALUES(
+    					   VALUES(
     							     #{userId}
     							   , #{name}
     							   , #{password}
@@ -31,8 +31,8 @@
     		   , USER_NAME name
     		   , USER_PASSWORD password
     		   , DATE_FORMAT(REG_DT,'%Y-%m-%d') regDt
-    	FROM TBL_USER_INFO
-    	WHERE USER_ID = #{userId}
+    	FROM 	 TBL_USER_INFO
+    	WHERE 	 USER_ID = #{userId}
     </select>
 </mapper>
 

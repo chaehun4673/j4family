@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @EnableAutoConfiguration
 @RequestMapping("/home")
-public class HomeController {
+public class MainController {
 	
 	@RequestMapping("/index")
 	public String mainView() {

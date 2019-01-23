@@ -1,11 +1,10 @@
-package com.j4family.web;
+package com.j4family.web.user;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +16,6 @@ import com.j4family.service.UserService;
 import com.j4family.vo.UserVO;
 
 @Controller
-@EnableAutoConfiguration
 @RequestMapping("/users")
 public class UserController {
 	

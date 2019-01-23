@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.j4family.dao.UserDao">
+    
+    <select id="userList" parameterType="com.j4family.vo.UserVO" resultType="com.j4family.vo.UserVO">
+    	SELECT   USER_ID userId 
+    		   , USER_NAME name
+    		   , USER_PASSWORD password
+    		   , DATE_FORMAT(REG_DT,'%Y-%m-%d') regDt
+    	FROM TBL_USER_INFO
+    </select>
+    
+    <insert id="userInsert" parameterType="com.j4family.vo.UserVO" >
+    	INSERT INTO TBL_USER_INFO(  USER_ID
+    							  , USER_NAME
+    							  , USER_PASSWORD
+    							  , REG_DT
+    							 )
+    							 VALUES(
+    							     #{userId}
+    							   , #{name}
+    							   , #{password}
+    							   , now() 
+    							 )
+    </insert>
+    
+    <select id="detailUser" parameterType="com.j4family.vo.UserVO" resultType="hashMap">
+    	SELECT   USER_ID userId 
+    		   , USER_NAME name
+    		   , USER_PASSWORD password
+    		   , DATE_FORMAT(REG_DT,'%Y-%m-%d') regDt
+    	FROM TBL_USER_INFO
+    	WHERE USER_ID = #{userId}
+    </select>
+</mapper>
+
+

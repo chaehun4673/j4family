@@ -57,6 +57,40 @@
 		    <artifactId>jquery</artifactId>
 		    <version>3.2.1</version>
 		</dependency>
+		
+		<dependency>
+	      <groupId>org.mybatis</groupId>
+	      <artifactId>mybatis</artifactId>
+	      <version>3.4.6</version>
+	    </dependency>
+	    
+	    <dependency>
+	      <groupId>org.mariadb.jdbc</groupId>
+	      <artifactId>mariadb-java-client</artifactId>
+	      <version>2.3.0</version>
+	    </dependency>
+	    
+	    <!-- spring-boot-starter-jdbc -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-jdbc</artifactId>
+		    <version>2.0.4.RELEASE</version>
+		</dependency>
+		
+		<!-- mysql-connector-java -->
+	    <dependency>
+	      <groupId>mysql</groupId>
+	      <artifactId>mysql-connector-java</artifactId>
+	      <version>5.1.44</version>
+	    </dependency>	    
+	    
+		
+        <!-- mybatis -->
+         <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.3.2</version>
+        </dependency>
 						
 	</dependencies>
 

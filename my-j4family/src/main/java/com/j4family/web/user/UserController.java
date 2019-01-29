@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,17 +23,25 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@RequestMapping("/login")
+	public String login() {
+		return "login/login";
+	}
+	
 	@RequestMapping("/form")
 	public String createView() {
-		return "form";
+		return "user/form";
 	}
 	
 	@PostMapping("/create")
 	public String create(UserVO user) throws Exception {
 		int cnt = 0;
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		System.out.println(user.getPassword());
 		cnt = userService.userInsert(user);
-		System.out.println(cnt);
-		return "redirect:/list";
+		
+		return "redirect:/users/list";
 	}
 	
 	@RequestMapping("/list")
@@ -40,7 +49,7 @@ public class UserController {
 		List<UserVO> users = userService.userList(userVO);
 		
 		model.addAttribute("users", users);
-		return "list";
+		return "user/list";
 	}
 	
 	@GetMapping("/{userId}/view")
@@ -51,7 +60,7 @@ public class UserController {
 		map  = userService.detailUser(userVO);
 		
 		model.addAttribute("user", map);
-		return "updateView";
+		return "user/updateView";
 	}
 
 }
